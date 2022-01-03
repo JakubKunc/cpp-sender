@@ -16,18 +16,18 @@ using namespace std;
 
 int main() {
     
-    // Promìnné
+    // PromÃ¬nnÃ©
     string ans;
     UINT codepage = 1250;
     string sLocale;
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    // Základní nastavení
+    // ZÃ¡kladnÃ­ nastavenÃ­
     setlocale(LC_ALL, "cs_CZ");
     SetConsoleCP(1250);
     SetConsoleTextAttribute(hConsole, B_RED);
     
-    cout << "Editovat adv. nastavení? (ano/ne): ";
+    cout << "Editovat adv. nastavenÃ­? (ano/ne): ";
     cin >> ans;
 
     if (ans == "ano") {
@@ -38,7 +38,7 @@ int main() {
         
             if (!cin) {
             
-                flushCin("Neplatná prodleva. Zadejte jinou.");
+                flushCin("NeplatnÃ¡ prodleva. Zadejte jinou.");
                 goto Q1;
 
             }
@@ -48,7 +48,7 @@ int main() {
 
             if (!cin) {
 
-                flushCin("Neplatný codepage. Zadejte jiný.");
+                flushCin("NeplatnÃ½ codepage. Zadejte jinÃ½.");
                 goto Q2;
 
             }
@@ -58,7 +58,7 @@ int main() {
 
             if (!cin || sLocale.length() < 4 || sLocale.length() > 10) {
 
-                flushCin("Neplatný locale. Zadejte jiný.");
+                flushCin("NeplatnÃ½ locale. Zadejte jinÃ½.");
                 goto Q3;
 
             }
@@ -66,16 +66,16 @@ int main() {
             SetConsoleTextAttribute(hConsole, B_GREEN);
             cout << "\nNastaveno.\n";
     }
-    else { // Cokoliv jiného než "ano" se bere jako ne
+    else { // Cokoliv jinÃ©ho neÅ¾ "ano" se bere jako ne
         
         delay = 30;
         codepage = 1250;
         sLocale = "cs_CZ";
 
         SetConsoleTextAttribute(hConsole, B_GREEN);
-        cout << "\nProdleva nastavena na základní (" << delay << "ms).\n";
-        cout << "Locale nastaven na základní (" << sLocale << ").\n";
-        cout << "Codepage nastaven na základní (" << codepage << ").\n";
+        cout << "\nProdleva nastavena na zÃ¡kladnÃ­ (" << delay << "ms).\n";
+        cout << "Locale nastaven na zÃ¡kladnÃ­ (" << sLocale << ").\n";
+        cout << "Codepage nastaven na zÃ¡kladnÃ­ (" << codepage << ").\n";
 
     }
 
@@ -83,15 +83,15 @@ int main() {
     SetConsoleCP(codepage);
     
     SetConsoleTextAttribute(hConsole, WHITE);
-    cout << "\n(c) Petr Šácha 2022. Podporuje diakritiku.\n";
-    cout << "Použitím programu souhlasíte se samostatností Míkovic.\n";
+    cout << "\n(c) Petr Å Ã¡cha 2022. Podporuje diakritiku.\n";
+    cout << "PouÅ¾itÃ­m programu souhlasÃ­te se samostatnostÃ­ MÃ­kovic (jako souÄÃ¡st UherskÃ©ho HradiÅ¡tÄ›)\n";
     cout << "Co chcete spamovat? -> ";
     
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // jinak nebude kvùli cin-u fungovat getline
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // jinak nebude kvÃ¹li cin-u fungovat getline
     getline(wcin, wts);
 
     SetConsoleTextAttribute(hConsole, B_GREEN);
-    cout << "\nHotovo. Držte F12 pro spam.\n"; 
+    cout << "\nHotovo. DrÅ¾te F12 pro spam.\n"; 
     
     while(true) {
         
